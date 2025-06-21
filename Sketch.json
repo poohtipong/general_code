@@ -1,0 +1,143 @@
+{
+  "PartitionManager": {
+    "base_address": null,
+    "offsets": {
+      "m_moduleList": "0x00",
+      "m_dirtyModules": "0x04"
+    },
+    "types": {
+      "m_moduleList": "PartitionData*",
+      "m_dirtyModules": "PartitionData*"
+    },
+    "note": "Master list of all partition modules; manages dirty-list updates.",
+    "source_file": "GameEngine/Include/GameLogic/PartitionManager.h"
+  },
+
+  "PartitionData": {
+    "offsets": {
+      "m_next": "0x00",
+      "m_object": "0x04"
+    },
+    "types": {
+      "m_next": "PartitionData*",
+      "m_object": "Object*"
+    },
+    "note": "Per-object spatial partition record (linked-list node).",
+    "source_file": "GameEngine/Include/GameLogic/PartitionManager.h"
+  },
+
+  "Object": {
+    "offsets": {
+      "id": "0x00",
+      "type": "0x04",
+      "team": "0x08",
+      "position": { "x": "0x0C", "y": "0x10", "z": "0x14" },
+      "health": "0x18",
+      "status": "0x1C"
+    },
+    "types": {
+      "id": "int",
+      "type": "int",
+      "team": "Team*",
+      "position": "Vector3",
+      "health": "float",
+      "status": "int"
+    },
+    "note": "Base class for every in-game entity (units, buildings, projectiles…).",
+    "source_file": "GameEngine/Include/Common/Object.h"
+  },
+
+  "Team": {
+    "offsets": {
+      "m_unitsInfo": "0x00",
+      "m_numUnitsInfo": "0x04",
+      "m_homeLocation": "0x08",
+      "m_hasHomeLocation": "0x14"
+    },
+    "types": {
+      "m_unitsInfo": "TCreateUnitsInfo[MAX_UNIT_TYPES]",
+      "m_numUnitsInfo": "Int",
+      "m_homeLocation": "Coord3D",
+      "m_hasHomeLocation": "Bool"
+    },
+    "note": "Logical group of units under a single AI / hotkey; accessed via Player.",
+    "source_file": "GameEngine/Include/Common/Team.h"
+  },
+
+  "Player": {
+    "offsets": {
+      "m_playerTemplate": "0x00",
+      "m_playerDisplayName": "0x04",
+      "m_handicap": "0x08",
+      "m_playerName": "0x0C",
+      "m_playerNameKey": "0x10",
+      "m_playerIndex": "0x14",
+      "m_side": "0x18",
+      "m_baseSide": "0x1C",
+      "m_playerType": "0x20",
+      "m_money": "0x24",
+      "m_upgradeList": "0x28",
+      "m_energy": "0x2C",
+      "m_stats": "0x30",
+      "m_pBuildList": "0x34",
+      "m_color": "0x38",
+      "m_defaultTeam": "0x3C",
+      "m_playerTeamPrototypes": "0x40",
+      "m_canBuildUnits": "0x44",
+      "m_canBuildBase": "0x45"
+    },
+    "types": {
+      "m_playerTemplate": "PlayerTemplate*",
+      "m_playerDisplayName": "UnicodeString",
+      "m_handicap": "Handicap",
+      "m_playerName": "AsciiString",
+      "m_playerNameKey": "NameKeyType",
+      "m_playerIndex": "PlayerIndex",
+      "m_side": "AsciiString",
+      "m_baseSide": "AsciiString",
+      "m_playerType": "PlayerType",
+      "m_money": "Money",
+      "m_upgradeList": "Upgrade*",
+      "m_energy": "Energy",
+      "m_stats": "MissionStats",
+      "m_pBuildList": "BuildListInfo*",
+      "m_color": "Color",
+      "m_defaultTeam": "Team*",
+      "m_playerTeamPrototypes": "PlayerTeamList",
+      "m_canBuildUnits": "Bool",
+      "m_canBuildBase": "Bool"
+    },
+    "note": "Entry-point object for each player; holds teams, production queue, objects, upgrades, etc.",
+    "source_file": "GameEngine/Include/Common/Player.h"
+  },
+
+  "BuildListInfo": {
+    "offsets": {
+      "itemCount": "0x00",
+      "items": "0x04",
+      "progress": "0x08"
+    },
+    "types": {
+      "itemCount": "int",
+      "items": "BuildItem[]",
+      "progress": "float"
+    },
+    "note": "Acts as ProductionQueue (Player → m_pBuildList).",
+    "source_file": "Defined inline inside Player.h"
+  },
+
+  "ShroudMap": {
+    "offsets": {
+      "width": "0x00",
+      "height": "0x04",
+      "data": "0x08"
+    },
+    "types": {
+      "width": "int",
+      "height": "int",
+      "data": "byte*"
+    },
+    "note": "Fog-of-war bitmap; member m_shroudMap inside GameMap (Map.h).",
+    "source_file": "GameEngine/Include/GameLogic/Map.h"
+  }
+}

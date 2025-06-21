@@ -1,0 +1,224 @@
+{
+  "PartitionManager": {
+    "base_address": "0x00a2c150",
+    "offsets": {
+      "m_moduleList": "0x00",
+      "m_dirtyModules": "0x04"
+    },
+    "types": {
+      "m_moduleList": "pointer",
+      "m_dirtyModules": "int"
+    }
+  },
+  "PartitionData": {
+    "base_address": "0x00a6bf0c",
+    "offsets": {
+      "next": "0x00",
+      "object": "0x04"
+    },
+    "types": {
+      "next": "pointer",
+      "object": "pointer"
+    }
+  },
+  "Object": {
+    "base_address": "0x00A29BB0",
+    "offsets": {
+      "id": "0x00",
+      "type": "0x04",
+      "team": "0x08",
+      "position.x": "0x0C",
+      "position.y": "0x10",
+      "position.z": "0x14",
+      "velocity.x": "0x18",
+      "velocity.y": "0x1C",
+      "velocity.z": "0x20",
+      "health": "0x24",
+      "status": "0x28",
+      "visionRange": "0x2C",
+      "shroudClearingRange": "0x30",
+      "constructionPercent": "0x34",
+      "objectUpgradesCompleted": "0x38",
+      "builderID": "0x3C",
+      "producerID": "0x40",
+      "template": "0x44",
+      "targetObject": "0x48",
+      "weaponCooldown": "0x4C",
+      "isConstructing": "0x50",
+      "isAlive": "0x51",
+      "isSelected": "0x52",
+      "commandQueue": "0x54"
+    },
+    "types": {
+      "id": "int",
+      "type": "int",
+      "team": "int",
+      "position.x": "float",
+      "position.y": "float",
+      "position.z": "float",
+      "velocity.x": "float",
+      "velocity.y": "float",
+      "velocity.z": "float",
+      "health": "int",
+      "status": "int",
+      "visionRange": "float",
+      "shroudClearingRange": "float",
+      "constructionPercent": "float",
+      "objectUpgradesCompleted": "int",
+      "builderID": "int",
+      "producerID": "int",
+      "template": "pointer",
+      "targetObject": "pointer",
+      "weaponCooldown": "float",
+      "isConstructing": "bool",
+      "isAlive": "bool",
+      "isSelected": "bool",
+      "commandQueue": "pointer"
+    }
+  },
+  "ThingTemplate": {
+    "base_address": "0x00000000",
+    "offsets": {
+      "name": "0x00",
+      "objectKind": "0x40",
+      "cost": "0x44",
+      "buildTime": "0x48",
+      "visionRange": "0x4C"
+    },
+    "types": {
+      "name": "string",
+      "objectKind": "enum",
+      "cost": "int",
+      "buildTime": "float",
+      "visionRange": "float"
+    }
+  },
+  "BuildListInfo": {
+    "base_address": "0x00A6C7D0",
+    "offsets": {
+      "itemCount": "0x00",
+      "items": "0x04",
+      "progress": "0x08"
+    },
+    "types": {
+      "itemCount": "int",
+      "items": "BuildItem[]",
+      "progress": "float"
+    }
+  },
+  "CommandQueue": {
+    "base_address": "0x00A6BC54",
+    "offsets": {
+      "vtable": "0x00",
+      "reserved1": "0x04",
+      "reserved2": "0x08",
+      "reserved3": "0x0C"
+    },
+    "types": {
+      "vtable": "pointer",
+      "reserved1": "int",
+      "reserved2": "int",
+      "reserved3": "int"
+    }
+  },
+  "ShroudMap": {
+    "base_address": "0x00000000",
+    "offsets": {
+      "width": "0x00",
+      "height": "0x04",
+      "data": "0x08"
+    },
+    "types": {
+      "width": "int",
+      "height": "int",
+      "data": "byte[]"
+    }
+  },
+  "GeneralInfo": {
+    "base_address": "0x00000000",
+    "offsets": {
+      "playerID": "0x00",
+      "money": "0x04",
+      "isAIControlled": "0x08",
+      "powerLevel": "0x0C",
+      "powerDrain": "0x10",
+      "powerOutput": "0x14"
+    },
+    "types": {
+      "playerID": "int",
+      "money": "int",
+      "isAIControlled": "bool",
+      "powerLevel": "int",
+      "powerDrain": "int",
+      "powerOutput": "int"
+    }
+  },
+  "SpecialPower": {
+    "base_address": "0x00A29B98",
+    "offsets": {
+      "type": "0x00",
+      "isReady": "0x04",
+      "cooldownTime": "0x08",
+      "targetPosition.x": "0x0C",
+      "targetPosition.y": "0x10",
+      "targetPosition.z": "0x14"
+    },
+    "types": {
+      "type": "int",
+      "isReady": "bool",
+      "cooldownTime": "float",
+      "targetPosition.x": "float",
+      "targetPosition.y": "float",
+      "targetPosition.z": "float"
+    }
+  },
+  "FoggedObjectMemory": {
+    "base_address": "0x00000000",
+    "offsets": {
+      "objectID": "0x00",
+      "lastSeenPosition.x": "0x04",
+      "lastSeenPosition.y": "0x08",
+      "lastSeenPosition.z": "0x0C",
+      "lastSeenTime": "0x10",
+      "template": "0x14"
+    },
+    "types": {
+      "objectID": "int",
+      "lastSeenPosition.x": "float",
+      "lastSeenPosition.y": "float",
+      "lastSeenPosition.z": "float",
+      "lastSeenTime": "float",
+      "template": "pointer"
+    }
+  },
+  "SelectionState": {
+    "base_address": "0x008C296C",
+    "offsets": {
+      "selectedUnitIDs": "0x00",
+      "numSelectedUnits": "0x20",
+      "selectedGroupID": "0x24"
+    },
+    "types": {
+      "selectedUnitIDs": "int[8]",
+      "numSelectedUnits": "int",
+      "selectedGroupID": "int"
+    }
+  },
+  "Player": {
+    "base_address": {
+      "primary": "0x009E6944",
+      "fallback": {
+        "type": "pointer_chain",
+        "chain": ["ECX", "0x08", "0x0C"]
+      }
+    },
+    "offsets": {
+      "money": "0x24",
+      "buildList": "0x34"
+    },
+    "types": {
+      "money": "int",
+      "buildList": "pointer"
+    }
+  }
+}
